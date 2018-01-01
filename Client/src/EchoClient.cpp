@@ -10,8 +10,12 @@ int main (int argc, char *argv[]) {
         std::cerr << "Usage: " << argv[0] << " host port" << std::endl << std::endl;
         return -1;
     }
-    std::string host = argv[1];
-    short port = atoi(argv[2]);
+//    std::string host = argv[1];
+//    short port = atoi(argv[2]);
+    std::string host = "127.0.0.1";
+    short port = 2000;
+
+
 
     ConnectionHandler connectionHandler(host, port);
     if (!connectionHandler.connect()) {
