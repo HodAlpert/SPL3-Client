@@ -1,4 +1,4 @@
-#flags
+# Flags
 CC = g++
 CFLAGS  = -std=c++11 
 BFLAGS  = -lboost_thread -lboost_system
@@ -18,18 +18,15 @@ BBclient: bin/ClientWriter.o bin/ConnectionHandler.o bin/EchoClient.o
 # ConnectionHandler
 bin/ConnectionHandler.o: src/ConnectionHandler.cpp
 	$(CC) $(CFLAGS) -c -Iinclude src/ConnectionHandler.cpp -o bin/ConnectionHandler.o
-#	$(CC) $(CFLAGS) -o bin/ConnectionHandler.o  $(BFLAGS) src/ConnectionHandler
 
 # ClientWriter
 bin/ClientWriter.o: src/ClientWriter.cpp
 	$(CC) $(CFLAGS) -c -Iinclude src/ClientWriter.cpp -o bin/ClientWriter.o
-#	$(CC) $(CFLAGS) bin/ClientWriter.o  $(BFLAGS) -o src/ClientWriter
 
 # EchoClient
 bin/EchoClient.o: src/EchoClient.cpp
 	$(CC) $(CFLAGS) -c -Iinclude src/EchoClient.cpp -o bin/EchoClient.o
-#	$(CC) $(CFLAGS)  bin/EchoClient.o  $(BFLAGS) -o src/EchoClient
 
-#Clean the build directory
+# Clean the build directory
 clean: 
 	rm -f bin/*
