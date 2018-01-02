@@ -3,12 +3,12 @@
 #include "../include/ConnectionHandler.h"
 using namespace boost::this_thread;
 
-class ClientListener {
+class ClientWriter {
 private:
     ConnectionHandler _handler;
     bool _shouldTerminate;
 public:
-    ClientListener (ConnectionHandler& handler) : _handler(handler),_shouldTerminate(false) {}
+    ClientWriter (ConnectionHandler& handler) : _handler(handler),_shouldTerminate(false) {}
 
     void operator()(){
         std::string answer;

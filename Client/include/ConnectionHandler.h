@@ -15,7 +15,7 @@ private:
     tcp::socket socket_;
     bool _shouldTerminate;
 public:
-    bool is_shouldTerminate() const;
+    bool shouldTerminate() const;
 
     void set_shouldTerminate(bool _shouldTerminate);
 

@@ -102,7 +102,7 @@ void ConnectionHandler::close() {
     }
 }
 
-bool ConnectionHandler::is_shouldTerminate() const {
+bool ConnectionHandler::shouldTerminate() const {
     return _shouldTerminate;
 }
 
