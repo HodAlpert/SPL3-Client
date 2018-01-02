@@ -1,7 +1,6 @@
 #include <iostream>
-#include <boost/thread.hpp>
 #include "../include/ConnectionHandler.h"
-using namespace boost::this_thread;
+#include <boost/thread.hpp>
 
 class ClientWriter {
 private:
