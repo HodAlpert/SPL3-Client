@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include "../include/ConnectionHandler.h"
+#include <boost/thread/thread.hpp>
 
 /**
 * This code assumes that the server replies the exact text the client sent it (as opposed to the practical session example)
@@ -22,9 +23,19 @@ int main (int argc, char *argv[]) {
         std::cerr << "Cannot connect to " << host << ":" << port << std::endl;
         return 1;
     }
+    else
+        std::cout<<"connected to server"<<std::endl;
+
 
     //From here we will see the rest of the ehco client implementation:
-    while (1) {
+    while (true) {
+        try {//checks if thread was interrupted
+            boost::this_thread::interruption_point();
+        }
+        catch (boost::thread_interrupted&) {//
+            std::cout << "Disconnected. Exiting...\n" << std::endl;
+            break;
+        }
         const short bufsize = 1024;
         char buf[bufsize];
         std::cin.getline(buf, bufsize);
