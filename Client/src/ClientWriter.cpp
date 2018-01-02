@@ -12,7 +12,7 @@ public:
 
     void operator()() {
         while (!_handler.shouldTerminate()) {
-            try {//checks if thread was interrupted
+//            try {//checks if thread was interrupted
                 const short bufsize = 1024;
                 char buf[bufsize];
                 std::cin.getline(buf, bufsize);
@@ -24,11 +24,11 @@ public:
                 }
                 std::cout << "Sent " << len + 1 << " bytes to server" << std::endl;
             }
-            catch (boost::thread_interrupted &) {//
-                std::cout << "Disconnected. Exiting...\n" << std::endl;
-                break;
-            }
+//            catch (boost::thread_interrupted &) {//
+//                std::cout << "Disconnected. Exiting...\n" << std::endl;
+//                break;
+//            }
         }
-    }
+//    }
 };
  
