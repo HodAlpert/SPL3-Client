@@ -10,8 +10,9 @@ public:
     ClientWriter(ConnectionHandler &handler) : _handler(handler) {}
 
     void operator()() {
-        while (!_handler.shouldTerminate()) {
+        while (true) {
             try {//checks if thread was interrupted
+                boost::this_thread::interruption_point();
                 const short bufsize = 1024;
                 char buf[bufsize];
                 std::cin.getline(buf, bufsize);
@@ -21,11 +22,13 @@ public:
                     std::cout << "Disconnected. Exiting...\n" << std::endl;
                     break;
                 }
-                std::cout << "Sent " << len + 1 << " bytes to server" << std::endl;
+                if(line=="bye") {
+                    break;
+                }
+                std::cout << "Sent: " << line << std::endl;
             }
 
             catch (boost::thread_interrupted &) {//
-                std::cout << "Disconnected. Exiting...\n" << std::endl;
                 break;
             }
         }

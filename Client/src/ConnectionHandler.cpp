@@ -8,7 +8,7 @@ using std::cerr;
 using std::endl;
 using std::string;
 
-ConnectionHandler::ConnectionHandler(string host, short port): host_(host), port_(port), io_service_(), socket_(io_service_),_shouldTerminate(false){}
+ConnectionHandler::ConnectionHandler(string host, short port): host_(host), port_(port), io_service_(), socket_(io_service_){}
 
 ConnectionHandler::~ConnectionHandler() {
     close();
@@ -102,10 +102,3 @@ void ConnectionHandler::close() {
     }
 }
 
-bool ConnectionHandler::shouldTerminate() const {
-    return _shouldTerminate;
-}
-
-void ConnectionHandler::set_shouldTerminate(bool _shouldTerminate) {
-    ConnectionHandler::_shouldTerminate = _shouldTerminate;
-}

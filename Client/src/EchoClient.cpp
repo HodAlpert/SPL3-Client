@@ -8,14 +8,14 @@
 * This code assumes that the server replies the exact text the client sent it (as opposed to the practical session example)
 */
 int main (int argc, char *argv[]) {
-//    if (argc < 3) {
-//        std::cerr << "Usage: " << argv[0] << " host port" << std::endl << std::endl;
-//        return -1;
-//    }
-//    std::string host = argv[1];
-//    short port = atoi(argv[2]);
-    std::string host = "127.0.0.1";
-    short port = 2000;
+    if (argc < 3) {
+        std::cerr << "Usage: " << argv[0] << " host port" << std::endl << std::endl;
+        return -1;
+    }
+    std::string host = argv[1];
+    short port = atoi(argv[2]);
+//    std::string host = "127.0.0.1";
+//    short port = 2000;
 
 
     ConnectionHandler connectionHandler(host, port);
@@ -40,11 +40,10 @@ int main (int argc, char *argv[]) {
         // A C string must end with a 0 char delimiter.  When we filled the answer buffer from the socket
         // we filled up to the \n char - we must make sure now that a 0 char is also present. So we truncate last character.
         answer.resize(len - 1);
-        std::cout << "Reply: " << answer << " " << len << " bytes " << std::endl << std::endl;
+        std::cout << "Received: " << answer << std::endl;
         if (answer == "bye") {
             std::cout << "Exiting...\n" << std::endl;
             WriterThread.interrupt();
-            connectionHandler.set_shouldTerminate(true);
             break;
         }
     }
