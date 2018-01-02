@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include "../include/ConnectionHandler.h"
-#include <boost/thread/thread.hpp>
-#include "./ClientWriter.cpp"
+#include <boost/thread.hpp>
+#include "ClientWriter.cpp"
 
 /**
 * This code assumes that the server replies the exact text the client sent it (as opposed to the practical session example)
@@ -43,11 +43,10 @@ int main (int argc, char *argv[]) {
         std::cout << "Reply: " << answer << " " << len << " bytes " << std::endl << std::endl;
         if (answer == "bye") {
             std::cout << "Exiting...\n" << std::endl;
-            WriterThread.boost::interrupt();
+            WriterThread.interrupt();
             connectionHandler.set_shouldTerminate(true);
             break;
         }
-
     }
     return 0;
 }
