@@ -43,7 +43,7 @@ int main (int argc, char *argv[]) {
         std::cout << "Reply: " << answer << " " << len << " bytes " << std::endl << std::endl;
         if (answer == "bye") {
             std::cout << "Exiting...\n" << std::endl;
-//            WriterThread.interrupt();
+            WriterThread.interrupt();
             connectionHandler.set_shouldTerminate(true);
             break;
         }

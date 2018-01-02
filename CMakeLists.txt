@@ -3,7 +3,7 @@ project(SPL3)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES Client/include/ConnectionHandler.h Client/src/ConnectionHandler.cpp Client/src/EchoClient.cpp Client/src/ClientWriter.cpp Client/include/ClientWriter.h)
+set(SOURCE_FILES Client/include/ConnectionHandler.h Client/src/ConnectionHandler.cpp Client/src/EchoClient.cpp Client/src/ClientWriter.cpp Client/include/ClientWriter.h Client/src/ConnectionHandler.cpp)
 add_executable(SPL3 ${SOURCE_FILES} Client/include/ConnectionHandler.h Client/src/ConnectionHandler.cpp Client/src/EchoClient.cpp Client/src/ClientWriter.cpp)
 
 
