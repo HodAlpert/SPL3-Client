@@ -29,13 +29,13 @@ int main (int argc, char *argv[]) {
 
     //From here we will see the rest of the ehco client implementation:
     while (true) {
-        try {//checks if thread was interrupted
-            boost::this_thread::interruption_point();
-        }
-        catch (boost::thread_interrupted&) {//
-            std::cout << "Disconnected. Exiting...\n" << std::endl;
-            break;
-        }
+//        try {//checks if thread was interrupted
+//            boost::this_thread::interruption_point();
+//        }
+//        catch (boost::thread_interrupted&) {//
+//            std::cout << "Disconnected. Exiting...\n" << std::endl;
+//            break;
+//        }
         const short bufsize = 1024;
         char buf[bufsize];
         std::cin.getline(buf, bufsize);

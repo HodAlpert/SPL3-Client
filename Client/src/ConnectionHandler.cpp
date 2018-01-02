@@ -101,3 +101,11 @@ void ConnectionHandler::close() {
         std::cout << "closing failed: connection already closed" << std::endl;
     }
 }
+
+bool ConnectionHandler::is_shouldTerminate() const {
+    return _shouldTerminate;
+}
+
+void ConnectionHandler::set_shouldTerminate(bool _shouldTerminate) {
+    ConnectionHandler::_shouldTerminate = _shouldTerminate;
+}

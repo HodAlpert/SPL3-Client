@@ -13,6 +13,11 @@ private:
     const short port_;
     boost::asio::io_service io_service_;   // Provides core I/O functionality
     tcp::socket socket_;
+    bool _shouldTerminate;
+public:
+    bool is_shouldTerminate() const;
+
+    void set_shouldTerminate(bool _shouldTerminate);
 
 public:
     ConnectionHandler(std::string host, short port);
