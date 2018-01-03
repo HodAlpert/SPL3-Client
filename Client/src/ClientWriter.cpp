@@ -22,7 +22,7 @@ public:
                     std::cout << "Disconnected. Exiting...\n" << std::endl;
                     break;
                 }
-                if(line=="bye") {
+                if(line=="SIGNOUT") {
                     break;
                 }
                 std::cout << "Sent: " << line << std::endl;
