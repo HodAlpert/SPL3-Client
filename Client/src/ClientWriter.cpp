@@ -18,14 +18,12 @@ public:
                 std::cin.getline(buf, bufsize);
                 std::string line(buf);
                 size_t len = line.length();
+                if(len==0)
+                    continue;
                 if (!_handler.sendLine(line)) {
                     std::cout << "Disconnected. Exiting...\n" << std::endl;
                     break;
                 }
-//                if(line.compare("SIGNOUT")==0) {
-//                    break;
-//                }
-//                std::cout << line << std::endl;
             }
 
             catch (boost::thread_interrupted &) {//
