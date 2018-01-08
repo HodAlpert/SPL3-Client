@@ -10,7 +10,7 @@ public:
     ClientWriter(ConnectionHandler &handler) : _handler(handler) {}
 
     void operator()() {
-        while (true) {
+        while (!_handler.isShould_terminate()) {
             try {//checks if thread was interrupted
                 boost::this_thread::interruption_point();
                 const short bufsize = 1024;
@@ -22,10 +22,10 @@ public:
                     std::cout << "Disconnected. Exiting...\n" << std::endl;
                     break;
                 }
-                if(line=="SIGNOUT") {
-                    break;
-                }
-                std::cout << "Sent: " << line << std::endl;
+//                if(line.compare("SIGNOUT")==0) {
+//                    break;
+//                }
+//                std::cout << line << std::endl;
             }
 
             catch (boost::thread_interrupted &) {//

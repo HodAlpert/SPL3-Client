@@ -1,0 +1,22 @@
+SIGNOUT
+LOGIN hod0 246666
+LOGIN ttt 246315
+REQUEST balance info
+REGISTER shlomi tryingagain country="Russia"
+REGISTER omri1 pass country="country"
+LOGIN omri1 pass
+REQUEST balance info
+REQUEST balance add 24
+REQUEST info
+REQUEST info "The Godfather"
+REQUEST info "test error"
+REQUEST rent "The Godfather"
+REQUEST rent "The Godfather3"
+REQUEST rent "The Pursuit Of Happyness"
+REQUEST rent "hod new movie"
+REQUEST rent "Justice League"
+REQUEST rent "Justice League"
+REQUEST return "Justice League"
+REQUEST return "Justice League"
+SIGNOUT
+

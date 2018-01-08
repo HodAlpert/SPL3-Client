@@ -26,21 +26,23 @@ int main (int argc, char *argv[]) {
     boost::thread WriterThread(writer);
 
     //From here we will see the rest of the ehco client implementation:
-    while (true) {
+    while (!connectionHandler.isShould_terminate()) {
         std::string answer;
         size_t len;
         if (!connectionHandler.getLine(answer)) {
             std::cout << "Disconnected. Exiting...\n" << std::endl;
+            connectionHandler.setShould_terminate(false);
             break;
         }
         len = answer.length();
         // A C string must end with a 0 char delimiter.  When we filled the answer buffer from the socket
         // we filled up to the \n char - we must make sure now that a 0 char is also present. So we truncate last character.
         answer.resize(len - 1);
-        std::cout << "Received: " << answer << std::endl;
-        if (answer == "ACK signout succeeded") {
+        std::cout << answer << std::endl;
+        if (answer.compare("ACK signout succeeded")==0) {
             std::cout << "Exiting...\n" << std::endl;
             WriterThread.interrupt();
+            connectionHandler.setShould_terminate(true);
             break;
         }
     }
