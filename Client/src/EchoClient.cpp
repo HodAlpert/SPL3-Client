@@ -41,10 +41,19 @@ int main (int argc, char *argv[]) {
         answer.resize(len - 1);
         std::cout << answer << std::endl;
         if (answer.compare("ACK signout succeeded")==0) {
+            connectionHandler.setSignoutAnswer(true);
+            connectionHandler.setSignoutAnswerReviced(true);
             std::cout << "Exiting...\n" << std::endl;
             connectionHandler.close();
-            std::exit;
+            WriterThread.join();
             break;
+        }
+        else if(answer.compare("ERROR signout failed")==0){
+            connectionHandler.setSignoutAnswerReviced(true);
+            while(!connectionHandler.getAnswerReadByWriterThread()){
+
+            }
+            connectionHandler.setAnswerReadByWriterThread(false);
         }
     }
     return 0;

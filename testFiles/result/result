@@ -7,8 +7,8 @@ ERROR request balance info failed
 ERROR registration failed
 ERROR registration failed
 ACK login succeeded
-ACK balance 30
-ACK balance 54 added 24
+ACK balance 54
+ACK balance 78 added 24
 ACK info "The Godfather" "The Pursuit Of Happyness" "The Notebook" "hod new movie" "Justice League"
 ACK info "The Godfather" 0 25 "united kingdom" "spain"
 ERROR request info failed
@@ -22,4 +22,6 @@ ERROR request return failed
 ERROR request return failed
 ACK signout succeeded
 Exiting...
+
+Writer Thread Disconnected. Exiting...
 

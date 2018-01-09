@@ -112,3 +112,27 @@ void ConnectionHandler::setShould_terminate(bool should_terminate) {
     ConnectionHandler::should_terminate = should_terminate;
 }
 
+volatile bool ConnectionHandler::getSignoutAnswerReviced() const {
+    return signoutAnswerReviced;
+}
+
+void ConnectionHandler::setSignoutAnswerReviced(volatile bool signoutAnswerReviced) {
+    ConnectionHandler::signoutAnswerReviced = signoutAnswerReviced;
+}
+
+bool ConnectionHandler::isSignoutAnswer() const {
+    return signoutAnswer;
+}
+
+void ConnectionHandler::setSignoutAnswer(bool signoutAnswer) {
+    ConnectionHandler::signoutAnswer = signoutAnswer;
+}
+
+volatile bool ConnectionHandler::getAnswerReadByWriterThread() const {
+    return answerReadByWriterThread;
+}
+
+void ConnectionHandler::setAnswerReadByWriterThread(volatile bool answerReadByWriterThread) {
+    ConnectionHandler::answerReadByWriterThread = answerReadByWriterThread;
+}
+

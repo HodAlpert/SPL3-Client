@@ -14,6 +14,23 @@ private:
     boost::asio::io_service io_service_;   // Provides core I/O functionality
     tcp::socket socket_;
     bool should_terminate;
+    volatile bool signoutAnswerReviced=false;
+    bool signoutAnswer=false;
+    volatile bool answerReadByWriterThread=false;
+public:
+    volatile bool getAnswerReadByWriterThread() const;
+
+    void setAnswerReadByWriterThread(volatile bool answerReadByWriterThread);
+
+public:
+    volatile bool getSignoutAnswerReviced() const;
+
+    void setSignoutAnswerReviced(volatile bool signoutAnswerReviced);
+
+    bool isSignoutAnswer() const;
+
+    void setSignoutAnswer(bool signoutAnswer);
+
 public:
     bool isShould_terminate() const;
 
