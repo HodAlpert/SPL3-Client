@@ -12,7 +12,6 @@ public:
     void operator()() {
         while (!_handler.isShould_terminate()) {
             try {//checks if thread was interrupted
-                boost::this_thread::interruption_point();
                 const short bufsize = 1024;
                 char buf[bufsize];
                 std::cin.getline(buf, bufsize);

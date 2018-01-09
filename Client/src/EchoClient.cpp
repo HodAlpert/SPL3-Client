@@ -42,7 +42,6 @@ int main (int argc, char *argv[]) {
         std::cout << answer << std::endl;
         if (answer.compare("ACK signout succeeded")==0) {
             std::cout << "Exiting...\n" << std::endl;
-            WriterThread.interrupt();
             connectionHandler.close();
             std::exit;
             break;
