@@ -4,6 +4,7 @@
 #include <boost/thread.hpp>
 #include "ClientWriter.cpp"
 
+
 /**
 * This code assumes that the server replies the exact text the client sent it (as opposed to the practical session example)
 */
@@ -42,7 +43,8 @@ int main (int argc, char *argv[]) {
         if (answer.compare("ACK signout succeeded")==0) {
             std::cout << "Exiting...\n" << std::endl;
             WriterThread.interrupt();
-            connectionHandler.setShould_terminate(true);
+            connectionHandler.close();
+            std::exit;
             break;
         }
     }

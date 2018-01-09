@@ -21,9 +21,11 @@ public:
                 if(len==0)
                     continue;
                 if (!_handler.sendLine(line)) {
-                    std::cout << "Disconnected. Exiting...\n" << std::endl;
+//                    std::cout << "Disconnected. Exiting...\n" << std::endl;
                     break;
                 }
+
+
             }
 
             catch (boost::thread_interrupted &) {//

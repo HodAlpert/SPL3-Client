@@ -5,19 +5,18 @@ ERROR login failed
 ERROR login failed
 ERROR request balance info failed
 ERROR registration failed
-ACK registration succeeded
+ERROR registration failed
 ACK login succeeded
-ACK balance 0
-ACK balance 24 added 24
+ACK balance 30
+ACK balance 54 added 24
 ACK info "The Godfather" "The Pursuit Of Happyness" "The Notebook" "hod new movie" "Justice League"
-ACK info "The Godfather" 1 25 "united kingdom" "spain"
+ACK info "The Godfather" 0 25 "united kingdom" "spain"
 ERROR request info failed
 ERROR request rent failed
 ERROR request rent failed
 ERROR request rent failed
 ERROR request rent failed
-ACK rent " Justice League" success
-BROADCAST movie "Justice League" 3 17
+ERROR request rent failed
 ERROR request rent failed
 ERROR request return failed
 ERROR request return failed
