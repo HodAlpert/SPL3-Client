@@ -1,0 +1,5 @@
+LOGIN john potato
+REQUEST balance add 30
+REQUEST rent "Justice League"
+REQUEST addmovie "movie test  lalala" 3 10 "israel" "canada"
+SIGNOUT

@@ -1,0 +1,6 @@
+LOGIN hod2 246315
+REQUEST balance add 30
+REQUEST rent "Justice League"
+REQUEST return "Justice League"
+REQUEST rent "movie test  lalala"
+SIGNOUT

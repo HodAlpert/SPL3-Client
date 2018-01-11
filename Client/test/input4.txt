@@ -1,0 +1,5 @@
+LOGIN hod3 246315
+REQUEST balance add 30
+REQUEST rent "Justice League"
+REQUEST return "Justice League"
+SIGNOUT
