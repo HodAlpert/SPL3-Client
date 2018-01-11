@@ -30,7 +30,7 @@ int main (int argc, char *argv[]) {
     boost::thread WriterThread(writer);
 
     //From here we will see the rest of the ehco client implementation:
-    while (true) {
+    while (!connectionHandler.isShould_terminate()) {
         std::string answer;
         size_t len;
         if (!connectionHandler.getLine(answer)) {
@@ -44,12 +44,24 @@ int main (int argc, char *argv[]) {
         answer.resize(len - 1);
         std::cout << answer << std::endl;
         if (answer.compare("ACK signout succeeded")==0) {
-            connectionHandler.setShould_terminate(true);
-            WriterThread.join();
+            connectionHandler.setSignoutAnswer(true);
+            connectionHandler.setSignoutAnswerReviced(true);
+            std::cout << "Exiting..." << std::endl;
+            std::string newline("TERMINATE");
+            connectionHandler.sendLine(newline);
             connectionHandler.close();
+            WriterThread.join();
             break;
         }
-
+        else if(answer.compare("ERROR signout failed")==0){
+            connectionHandler.setSignoutAnswerReviced(true);
+            while(!connectionHandler.getAnswerReadByWriterThread()){
+                boost::this_thread::sleep(boost::posix_time::milliseconds(10));
+            }
+            connectionHandler.setAnswerReadByWriterThread(false);
+        }
     }
+    std::cout << "Disconnected. echo thread Exiting...\n" << std::endl;
+
     return 0;
 }
