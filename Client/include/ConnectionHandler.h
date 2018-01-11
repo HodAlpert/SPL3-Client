@@ -22,7 +22,6 @@ public:
 
     void setAnswerReadByWriterThread(volatile bool answerReadByWriterThread);
 
-public:
     volatile bool getSignoutAnswerReviced() const;
 
     void setSignoutAnswerReviced(volatile bool signoutAnswerReviced);
@@ -31,15 +30,10 @@ public:
 
     void setSignoutAnswer(bool signoutAnswer);
 
-public:
     bool isShould_terminate() const;
 
     void setShould_terminate(bool should_terminate);
 
-public:
-
-
-public:
     ConnectionHandler(std::string host, short port);
     virtual ~ConnectionHandler();
 

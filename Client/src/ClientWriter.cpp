@@ -23,7 +23,7 @@ public:
                 }
                 if (line.compare("SIGNOUT")==0){
                     while(!_handler.getSignoutAnswerReviced()){
-
+                        boost::this_thread::sleep(boost::posix_time::milliseconds(10));
                     }
                     _handler.setAnswerReadByWriterThread(true);
                     if(_handler.isSignoutAnswer())
@@ -34,7 +34,6 @@ public:
                 }
 
             }
-            std::cout << "Writer Thread Disconnected. Exiting...\n" << std::endl;
 
 
     }

@@ -3,6 +3,9 @@
 #include "../include/ConnectionHandler.h"
 #include <boost/thread.hpp>
 #include "ClientWriter.cpp"
+#include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/date_time.hpp>
+
 
 
 /**
@@ -43,7 +46,7 @@ int main (int argc, char *argv[]) {
         if (answer.compare("ACK signout succeeded")==0) {
             connectionHandler.setSignoutAnswer(true);
             connectionHandler.setSignoutAnswerReviced(true);
-            std::cout << "Exiting...\n" << std::endl;
+            std::cout << "Exiting..." << std::endl;
             connectionHandler.close();
             WriterThread.join();
             break;
@@ -51,7 +54,7 @@ int main (int argc, char *argv[]) {
         else if(answer.compare("ERROR signout failed")==0){
             connectionHandler.setSignoutAnswerReviced(true);
             while(!connectionHandler.getAnswerReadByWriterThread()){
-
+                boost::this_thread::sleep(boost::posix_time::milliseconds(10));
             }
             connectionHandler.setAnswerReadByWriterThread(false);
         }
