@@ -47,8 +47,6 @@ int main (int argc, char *argv[]) {
             connectionHandler.setSignoutAnswer(true);
             connectionHandler.setSignoutAnswerReviced(true);
             std::cout << "Exiting..." << std::endl;
-            std::string newline("TERMINATE\n");
-            connectionHandler.sendLine(newline);
             connectionHandler.close();
             WriterThread.join();
             break;
