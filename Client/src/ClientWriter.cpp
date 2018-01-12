@@ -18,7 +18,7 @@ public:
             size_t len = line.length();
 
             if (!_handler.sendLine(line)) {
-//                    std::cout << "Disconnected. Exiting...\n" << std::endl;
+                    std::cout << "Disconnected. Exiting...\n" << std::endl;
                 break;
             }
             if (line.compare("SIGNOUT")==0){
@@ -27,8 +27,6 @@ public:
                 }
                 _handler.setAnswerReadByWriterThread(true);
                 if(_handler.isSignoutAnswer())
-                    std::cout << "Disconnected. writerThread Exiting...\n" << std::endl;
-
                     break;
                 _handler.setSignoutAnswerReviced(false);
 

@@ -47,7 +47,7 @@ int main (int argc, char *argv[]) {
             connectionHandler.setSignoutAnswer(true);
             connectionHandler.setSignoutAnswerReviced(true);
             std::cout << "Exiting..." << std::endl;
-            std::string newline("TERMINATE");
+            std::string newline("TERMINATE\n");
             connectionHandler.sendLine(newline);
             connectionHandler.close();
             WriterThread.join();
@@ -61,7 +61,6 @@ int main (int argc, char *argv[]) {
             connectionHandler.setAnswerReadByWriterThread(false);
         }
     }
-    std::cout << "Disconnected. echo thread Exiting...\n" << std::endl;
 
     return 0;
 }
